@@ -1,0 +1,13 @@
+.container {
+    padding: 20px;
+}
+
+h2, h3 {
+    color: #333;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.6;
+    text-align: justify;
+}

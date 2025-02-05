@@ -1,0 +1,52 @@
+<div class="container mt-5">
+    <h2 class="text-center">Educación</h2>
+    @for(NivelEducativo of ListaNivelesEducacion; track NivelEducativo.titulo) {
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ NivelEducativo.imagen }}" class="img-fluid rounded-start" alt="{{ NivelEducativo.titulo }}">
+                </div>
+                <div class="col-md-8" style="text-align: justify;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ NivelEducativo.titulo }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ NivelEducativo.institucion }} - {{ NivelEducativo.facultad }}</h6>
+                        <p class="card-text">{{ NivelEducativo.descripcion }}</p>
+                        @if(!NivelEducativo.concluido) {
+                            <p class="card-text"><small class="text-muted">Trunco</small></p>
+                        }
+                        <p class="card-text"><small class="text-muted">{{ NivelEducativo.anio_ingreso }} - {{ NivelEducativo.anio_egreso }}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <h2 class="text-center">Cursos</h2>
+    <div class="row">
+        @for(Curso of ListaCursos; track Curso.titulo) {
+            <div class="col-md-6 col-lg-3">
+                <div class="card mb-4">
+                    <img id="imagenPreview" [src]="Curso.imagen" class="img-fluid rounded-start" alt="{{ Curso.titulo }}" (click)="openModal(Curso.imagen)">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ Curso.titulo }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ Curso.institucion }}</h6>
+                        <p class="card-text"><small class="text-muted">{{ Curso.anio_ingreso }}</small></p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img id="expandedImg" class="img-fluid rounded mx-auto d-block" alt="Imagen expandida">
+            </div>
+        </div>
+    </div>
+</div>

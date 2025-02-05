@@ -1,0 +1,7 @@
+<div [attr.data-bs-theme]="TemaModoOscuroService.modoOscuroSignal()" [class.text-light]="TemaModoOscuroService.modoOscuroSignal() === 'dark'" class="bg-body-tertiary d-flex flex-column min-vh-100">
+    <app-navbar />
+    <div class="flex-grow-1">
+        <router-outlet />
+    </div>
+    <app-footer />
+</div>

@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Experiencia Profesional</h2>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            @for(Trabajo of ListaTrabajos; track Trabajo.posicion) {
+                <div class="card mb-3 shadow-sm" style="text-align: justify;">
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ Trabajo.posicion }}</h4>
+                            <h6 class="card-subtitle text-muted">{{ Trabajo.compania }} - {{ Trabajo.fecha_ingreso }} a {{ Trabajo.fecha_egreso }}</h6>
+                            <p class="card-text mt-2">{{ Trabajo.descripcion }}</p>
+                            <h5 class="card-subtitle">Actividades principales</h5>
+                            <ul>
+                                @for(Actividad of Trabajo.actividades; track Actividad.nombre) {
+                                    <li class="card-text mt-2">{{ Actividad.nombre }}</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
